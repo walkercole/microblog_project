@@ -39,3 +39,21 @@ get "/logout" do
 	flash[:notice] = "Later &lt;/3"
 	redirect "/"
 end
+
+get "/my_profile" do 
+	@user = current_user
+	erb :my_profile
+end
+
+post "/my_profile" do 
+	@user = current_user
+	@user.profile.full_name = params["profile_name"]
+	@user.profile.location = params["profile_loc"]
+	@user.profile.bio = params["profile_bio"]
+	@user.profile.save
+	erb :my_profile
+end
+get "/profile/:user_id" do
+	@user = User.find params["user_id"]
+	erb :profile
+end

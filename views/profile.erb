@@ -1,0 +1,9 @@
+<h2 id="profile_greet"> Welcome to <%= @user.username %>'s profile! </h2>
+<br />
+<br />
+<% if @user.profile %>
+	<h4>Name:</h4> <%= @user.profile.full_name %>
+	<h4>Location:</h4> <%= @user.profile.location %>
+	<h4>Bio:</h4> <%= @user.profile.bio %>
+<% end %>
+

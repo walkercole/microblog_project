@@ -6,16 +6,23 @@
 			.error { color: red; }
 			.notice { color: yellow; background: silver; }
 			fieldset { display:inline-block; }
+			#profile_greet {text-align: center;}
 		</style>
 	</head>
 	<body>
 		<% flash.each do |name, msg| %>
 	      <div class="<%= name %>"><%= msg %></div>
 		<% end %>
+		<br />
+		<a href="/"><button>Home</button></a>
 		<div class="account">
 			<% if current_user %>
-				<p> Hello, <%= current_user.username %> ! </p>
+				<br />
+				<fieldset>
+				<p> Hello, <%= current_user.username %>! </p>
 				<a href="/logout"><button>Logout</button></a>
+				<a href="/my_profile"><button>Profile</button></a>
+				</fieldset>
 			<% else %>
 				<p> You are not logged in! </p>
 				<fieldset>

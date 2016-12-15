@@ -1,0 +1,20 @@
+<h2 id="profile_greet"> Welcome to <%= @user.username %>'s profile! </h2>
+<br />
+<br />
+<fieldset>
+	<legend>Edit Profile</legend>
+	<form method="post" action="/my_profile">
+	<label for="profile_name">Edit Name:</label>
+	<input id="profile_name" name="profile_name"/>
+	<label for="profile_loc">Edit Location:</label>
+	<input id="profile_loc" name="profile_loc"/>
+	<label for="profile_bio">Edit Bio:</label>
+	<textarea id="profile_bio" name="profile_bio"></textarea>
+	<button>Save</button>
+	</form>
+</fieldset>
+<% if @user.profile %>
+	<h4>Name:</h4> <%= @user.profile.full_name %>
+	<h4>Location:</h4> <%= @user.profile.location %>
+	<h4>Bio:</h4> <%= @user.profile.bio %>
+<% end %>
