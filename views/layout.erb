@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Microblog</title>
+		<style>
+			.error { color: red; }
+			.notice { color: yellow; background: silver; }
+			fieldset { display:inline-block; }
+		</style>
+	</head>
+	<body>
+		<% flash.each do |name, msg| %>
+	      <div class="<%= name %>"><%= msg %></div>
+		<% end %>
+		<div class="account">
+			<% if current_user %>
+				<p> Hello, <%= current_user.username %> ! </p>
+				<a href="/logout"><button>Logout</button></a>
+			<% else %>
+				<p> You are not logged in! </p>
+				<fieldset>
+				<form method="post" action="/login">
+					<label for="username">Username:</label>
+					<input id="username" name="username" />
+					<label for="password">Password:</label>
+					<input id="password" name="password" type="password" />
+					<button>Log in</button>
+				</form></fieldset>
+				<br />
+				<br />
+				<fieldset><legend>If you are new, please sign up!</legend>
+				<form method="post" action="/sign-up">
+					<label for="regname">Register Username:</label>
+					<input id="regname" name="regname" />
+					<label for="regpass">Register Password:</label>
+					<input id="regpass" name="regpass" />
+					<button>Sign-up!</button>
+				</form></fieldset>
+			<% end %>
+		</div>
+		<%= yield %>
+	</body>
+</html>
