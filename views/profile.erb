@@ -6,4 +6,11 @@
 	<h4>Location:</h4> <%= @user.profile.location %>
 	<h4>Bio:</h4> <%= @user.profile.bio %>
 <% end %>
+	<h4>Post History:</h4>
+<% @user.posts.each do |post| %>
+	
+<% if post %>
+	<h4>Posted at: [<%= post.created_at %>] </h4> <em><%= post.title %>:</em> <br /><%= post.body %>
+<% end %>
+<% end %>
 

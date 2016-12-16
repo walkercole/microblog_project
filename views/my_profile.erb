@@ -4,17 +4,36 @@
 <fieldset>
 	<legend>Edit Profile</legend>
 	<form method="post" action="/my_profile">
-	<label for="profile_name">Edit Name:</label>
-	<input id="profile_name" name="profile_name"/>
-	<label for="profile_loc">Edit Location:</label>
-	<input id="profile_loc" name="profile_loc"/>
-	<label for="profile_bio">Edit Bio:</label>
-	<textarea id="profile_bio" name="profile_bio"></textarea>
-	<button>Save</button>
+		<label for="profile_name">Edit Name:</label>
+		<input id="profile_name" name="profile_name"/>
+		<label for="profile_loc">Edit Location:</label>
+		<input id="profile_loc" name="profile_loc"/>
+		<label for="profile_bio">Edit Bio:</label>
+		<textarea id="profile_bio" name="profile_bio"></textarea>
+		<button>Save</button>
+	</form>
+</fieldset>
+<br /><br />
+<fieldset>
+	<legend>Create A Post</legend>
+	<form method="post" action="/my_post">
+		<label for="post_title">Title:</label>
+		<input id="post_title" name="post_title"/>
+		<label for="post_body">Body:</label>
+		<textarea id="post_body" name="post_body"></textarea>
+		<button>Post</button>
 	</form>
 </fieldset>
 <% if @user.profile %>
 	<h4>Name:</h4> <%= @user.profile.full_name %>
 	<h4>Location:</h4> <%= @user.profile.location %>
 	<h4>Bio:</h4> <%= @user.profile.bio %>
+	<br />
+<% end %>
+	<h3>Post History:</h3>
+<% @user.posts.reverse_each do |post| %>
+	
+<% if post %>
+	<h4>Posted at: [<%= post.created_at %>] </h4> <strong><em><%= post.title %>:</em></strong> <br /><%= post.body %>
+<% end %>
 <% end %>
