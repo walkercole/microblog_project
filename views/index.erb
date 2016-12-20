@@ -1,3 +1,8 @@
+<style>
+#homefeed {text-align: center;}
+
+</style>
+<div id="homefeed">
 <h2> Recent Post Feed </h2>
 <% Post.all.last(10).reverse_each do |i| %>
  	by: <a href="profile/<%= i.user_id %>"><%= User.find(i.user_id).username %></a> @
@@ -5,3 +10,4 @@
  	<h3><em><%= i.title %></em></h3>
  	<p><%= i.body %></p>
  <% end %> 
+</div>

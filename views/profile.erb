@@ -1,11 +1,67 @@
+<style type="text/css">
+body {
+	background-image: url("/blogbg.jpg");
+	font-family: sans-serif;
+}
+title {
+	color:blue;
+}
+#help {
+	text-align: center;
+}
+#titles {
+	text-align: center;
+	background-color: #C6EFFF;
+	border-radius: 10px;
+	display: block;
+}
+button {
+	border:2px solid skyblue;
+	border-radius: 15px;
+	transition-duration: 0.4s;
+	width:90px;
+}
+button:hover {
+	background-color: skyblue;
+	color:white;
+}
+fieldset {
+	border:2px solid;
+	border-radius: 15%;
+	border-color: skyblue;
+}
+/* */
+			.error { color: red; }
+			.notice { color: yellow; background: silver; }
+			fieldset { display:inline-block; }
+			#profile_greet {text-align: center;}
+			#fumble {
+				font-family: sans-serif;
+				color:#2483FF;
+				display: inline-block;
+			}
+			#help,#prohist {
+				text-align: center;
+			}
+			#line {
+				text-align: center;
+				color: skyblue;
+				opacity:80%;
+			}	
+</style>
 <h2 id="profile_greet"> Welcome to <%= @user.username %>'s profile! </h2>
 <br />
 <br />
+<div id="profile_info">
 <% if @user.profile %>
 	<h4>Name:</h4> <%= @user.profile.full_name %>
 	<h4>Location:</h4> <%= @user.profile.location %>
 	<h4>Bio:</h4> <%= @user.profile.bio %>
 <% end %>
+</div>
+<br />
+ <div id="line">_ ________________________________________________________________________________________________________________________________ _</div>
+	<div id="prohist">
 	<h4>Post History:</h4>
 <% @user.posts.each do |post| %>
 	
@@ -13,4 +69,5 @@
 	<h4>Posted at: [<%= post.created_at %>] </h4> <em><%= post.title %>:</em> <br /><%= post.body %>
 <% end %>
 <% end %>
-
+</div>
+<br />

@@ -1,0 +1,49 @@
+body {
+	background-image: url("blogbg.jpg");
+	font-family: sans-serif;
+}
+title {
+	color:blue;
+}
+#help {
+	text-align: center;
+}
+#titles {
+	text-align: center;
+	background-color: #C6EFFF;
+	border-radius: 10px;
+	display: block;
+}
+button {
+	border:2px solid skyblue;
+	border-radius: 15px;
+	transition-duration: 0.4s;
+	width:90px;
+	cursor:pointer;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);	
+}
+button:hover {
+	background-color: skyblue;
+	color:white;
+}
+fieldset {
+	border:2px solid;
+	border-radius: 15%;
+	border-color: skyblue;
+}
+p {
+	color:#2483FF;
+}
+/* */
+			.error { color: red; }
+			.notice { color: yellow; background: silver; }
+			fieldset { display:inline-block; }
+			#profile_greet {text-align: center;}
+			#fumble {
+				font-family: sans-serif;
+				color:#2483FF;
+				display: inline-block;
+			}
+			#help {
+				text-align: center;
+			}

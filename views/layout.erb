@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Microblog</title>
+		<title>Fumble</title>
+		 <link rel="icon" href="/Edit-16.png" />
+		<link rel="stylesheet" type="text/css" href="style.css">		
 		<style>
-			.error { color: red; }
-			.notice { color: yellow; background: silver; }
-			fieldset { display:inline-block; }
-			#profile_greet {text-align: center;}
+
 		</style>
 	</head>
 	<body>
+		<div id="titles"><a href="/"><img src="/Edit-16.png" width="23px;"><h1 id="fumble">Fumble</h1></a></div>
 		<% flash.each do |name, msg| %>
 	      <div class="<%= name %>"><%= msg %></div>
 		<% end %>
 		<br />
-		<a href="/"><button>Home</button></a>
 		<div class="account">
 			<% if current_user %>
 				<br />
-				<fieldset>
+				<fieldset id="pfb">
 				<p> Hello, <%= current_user.username %>! </p>
 				<a href="/logout"><button>Logout</button></a>
 				<a href="/my_profile"><button>Profile</button></a>

@@ -69,3 +69,22 @@ get "/profile/:user_id" do
 	@user = User.find params["user_id"]
 	erb :profile
 end
+
+post "/delete_post" do
+	Post.find(params["post"]).destroy
+	redirect "/my_profile"
+end	
+
+post "/edit_post" do 
+	if params[:title] != "" || params[:body] != ""
+ 		Post.find(params[:post]).update_attributes(title: params[:title], body: params[:body])
+ 	end
+ 	redirect '/my_profile'
+end
+
+
+post "/delete_user" do
+	current_user.destroy
+	flash[:error] = "Account Deleted!"
+	redirect "/logout"
+end
